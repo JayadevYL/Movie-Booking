@@ -1,7 +1,9 @@
 package com.MovieBooking.MovieBooking.model;
 
 
+import org.springframework.stereotype.Component;
 
+@Component
 public class ResponseObject {
 
     String status;

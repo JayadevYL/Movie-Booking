@@ -3,8 +3,8 @@ package com.MovieBooking.MovieBooking.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="Movie_booking")
-public class MovieBookingEntity {
+@Table(name="Movie_details")
+public class MovieDetailsEntity {
 
     @Id //primary Key
     @GeneratedValue(strategy = GenerationType.IDENTITY)  // This code will auto generate the ID
@@ -23,10 +23,10 @@ public class MovieBookingEntity {
     @Column(name="ticket_price")
     private String ticketPrice;
 
-    public MovieBookingEntity() {
+    public MovieDetailsEntity() {
     }
 
-    public MovieBookingEntity(String movieName, String location, String movieTheatre, String ticketPrice) {
+    public MovieDetailsEntity(String movieName, String location, String movieTheatre, String ticketPrice) {
         this.movieName = movieName;
         this.location = location;
         this.movieTheatre = movieTheatre;

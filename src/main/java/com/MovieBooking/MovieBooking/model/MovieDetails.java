@@ -1,7 +1,7 @@
 package com.MovieBooking.MovieBooking.model;
 
 
-public class MovieBooking {
+public class MovieDetails {
 
 
     private String movieName;

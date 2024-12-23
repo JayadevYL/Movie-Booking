@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 public class LoginAndRegistrationController {
 
     @Autowired private LoginAndRegistrationService loginAndRegistrationService;
+    @Autowired ResponseObject responseObject;
 
     @PostMapping("/registration/submit")
     public ResponseEntity<UserDetails> registrationSubmit(@RequestBody UserDetails userDetails){
@@ -26,9 +27,8 @@ public class LoginAndRegistrationController {
     public ResponseEntity<ResponseObject> login(@RequestBody LoginCredential loginCredential){
 
         String response = loginAndRegistrationService.loginVerify(loginCredential);
-        ResponseObject responseSRO = new ResponseObject();
-        responseSRO.setStatus("200");
-        responseSRO.setMessage(response);
-        return ResponseEntity.ok(responseSRO);
+        responseObject.setStatus("200");
+        responseObject.setMessage(response);
+        return ResponseEntity.ok(responseObject);
     }
 }
