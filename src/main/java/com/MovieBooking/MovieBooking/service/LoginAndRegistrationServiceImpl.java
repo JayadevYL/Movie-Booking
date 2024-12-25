@@ -7,13 +7,12 @@ import com.MovieBooking.MovieBooking.exceptions.WrongPasswordExceptionHandker;
 import com.MovieBooking.MovieBooking.model.Email;
 import com.MovieBooking.MovieBooking.model.LoginCredential;
 import com.MovieBooking.MovieBooking.model.UserDetails;
-import com.MovieBooking.MovieBooking.util.UserDetailsMapperUtil;
+import com.MovieBooking.MovieBooking.mapper.UserDetailsMapper;
 import com.MovieBooking.MovieBooking.validations.RegistrationValidations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.Objects;
 
 @Service
@@ -28,7 +27,8 @@ public class LoginAndRegistrationServiceImpl implements LoginAndRegistrationServ
     @Transactional
     public UserDetails save(UserDetails userDetails) {
         // Convert UserDetails to UserDetailsEntity
-        UserDetailsEntity userDetailsEntity = UserDetailsMapperUtil.toEntity(userDetails);
+        UserDetailsEntity userDetailsEntity = UserDetailsMapper.INSTANCE.toEntity(userDetails);
+
 
         // Capturing given email and phone number
         String email= userDetails.getEmail();
@@ -48,7 +48,7 @@ public class LoginAndRegistrationServiceImpl implements LoginAndRegistrationServ
         emailSend.sendMailForRegistration(email, username);
 
         // Convert saved entity back to UserDetails
-        return UserDetailsMapperUtil.toModel(savedEntity);
+        return UserDetailsMapper.INSTANCE.toDTO(savedEntity);
     }
 
     @Override

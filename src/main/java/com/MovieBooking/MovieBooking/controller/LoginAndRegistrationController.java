@@ -25,7 +25,6 @@ public class LoginAndRegistrationController {
 
     @PostMapping("/login")
     public ResponseEntity<ResponseObject> login(@RequestBody LoginCredential loginCredential){
-
         String response = loginAndRegistrationService.loginVerify(loginCredential);
         responseObject.setStatus("200");
         responseObject.setMessage(response);
