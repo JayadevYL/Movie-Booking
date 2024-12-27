@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 public class LoginAndRegistrationController {
 
     @Autowired private LoginAndRegistrationService loginAndRegistrationService;
-    @Autowired ResponseObject responseObject;
+    @Autowired private ResponseObject responseObject;
 
     @PostMapping("/registration/submit")
     public ResponseEntity<UserDetails> registrationSubmit(@RequestBody UserDetails userDetails){

@@ -1,6 +1,7 @@
 package com.MovieBooking.MovieBooking.service;
 
 import com.MovieBooking.MovieBooking.dao.LocationRepositoryDao;
+import com.MovieBooking.MovieBooking.model.MovieDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,4 +19,5 @@ public class LocationServiceImpl implements LocationService {
         List<String> allTheAvailableLocation=locationRepositoryDao.allTheAvailableLocation();
         return allTheAvailableLocation;
     }
+
 }

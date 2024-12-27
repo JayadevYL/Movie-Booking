@@ -1,12 +1,19 @@
 package com.MovieBooking.MovieBooking.model;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Id;
+import org.antlr.v4.runtime.misc.NotNull;
+
 
 public class UserDetails {
 
+    @NotNull
     private String userName;
+    @NotNull
     private String email;
+    @NotNull
     private String password;
+    @NotNull
     private String phoneNumber;
 
     public String getUserName() {

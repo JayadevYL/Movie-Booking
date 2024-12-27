@@ -6,7 +6,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-12-25T09:18:34+0530",
+    date = "2024-12-25T10:39:43+0530",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 23.0.1 (Oracle Corporation)"
 )
 public class UserDetailsMapperImpl implements UserDetailsMapper {
@@ -28,7 +28,7 @@ public class UserDetailsMapperImpl implements UserDetailsMapper {
     }
 
     @Override
-    public UserDetails toDTO(UserDetailsEntity userDetailsEntity) {
+    public UserDetails toModel(UserDetailsEntity userDetailsEntity) {
         if ( userDetailsEntity == null ) {
             return null;
         }

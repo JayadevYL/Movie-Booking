@@ -3,6 +3,8 @@ package com.MovieBooking.MovieBooking.model;
 
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class ResponseObject {
 
@@ -25,4 +27,5 @@ public class ResponseObject {
     public void setStatus(String status) {
         this.status = status;
     }
+
 }

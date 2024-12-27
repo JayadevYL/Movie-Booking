@@ -48,7 +48,7 @@ public class LoginAndRegistrationServiceImpl implements LoginAndRegistrationServ
         emailSend.sendMailForRegistration(email, username);
 
         // Convert saved entity back to UserDetails
-        return UserDetailsMapper.INSTANCE.toDTO(savedEntity);
+        return UserDetailsMapper.INSTANCE.toModel(savedEntity);
     }
 
     @Override

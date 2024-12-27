@@ -14,6 +14,6 @@ public interface UserDetailsMapper {
     UserDetailsEntity toEntity(UserDetails userDetails);
 
     // Map UserDetailsEntity to UserDetails
-    UserDetails toDTO(UserDetailsEntity userDetailsEntity);
+    UserDetails toModel(UserDetailsEntity userDetailsEntity);
 
 }
