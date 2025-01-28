@@ -23,6 +23,9 @@ public class UserDetailsEntity {
     @Column(name = "phone_number",unique = true, nullable = false)
     private String phoneNumber;
 
+    @Column(name="customer_id", unique = true, nullable = false)
+    private String customerId;
+
     public UserDetailsEntity() {
     }
 
@@ -73,14 +76,23 @@ public class UserDetailsEntity {
         this.id = id;
     }
 
+    public String getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
+    }
+
     @Override
     public String toString() {
-        return "UserDetails{" +
+        return "UserDetailsEntity{" +
                 "id=" + id +
                 ", userName='" + userName + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", phoneNumber=" + phoneNumber +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", customerId='" + customerId + '\'' +
                 '}';
     }
 }

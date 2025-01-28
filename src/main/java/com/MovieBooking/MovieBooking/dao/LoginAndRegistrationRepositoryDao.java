@@ -18,4 +18,7 @@ public interface LoginAndRegistrationRepositoryDao extends JpaRepository<UserDet
    @Query("SELECT u.phoneNumber FROM UserDetailsEntity u")
    List<String> getPhoneNumber();
 
+   @Query("SELECT u.customerId FROM UserDetailsEntity u WHERE u.email=:email ")
+   String getCustomerId(@Param("email") String email);
+
 }

@@ -75,8 +75,6 @@
 				<version>1.5.5.Final</version>
 				<scope>annotationProcessor</scope>
 			</dependency>
-
-
 	</dependencies>
 
 	<build>
