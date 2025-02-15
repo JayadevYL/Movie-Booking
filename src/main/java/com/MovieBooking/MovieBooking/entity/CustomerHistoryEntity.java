@@ -2,6 +2,8 @@ package com.MovieBooking.MovieBooking.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name="customer_history")
 public class CustomerHistoryEntity {
@@ -11,7 +13,6 @@ public class CustomerHistoryEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private int id;
-
 
     @Column(name="customer_id")
     private String customerId;
@@ -27,6 +28,7 @@ public class CustomerHistoryEntity {
 
     @Column(name="price")
     private int ticketPrice;
+
 
     public String getCustomerId() {
         return customerId;

@@ -2,6 +2,8 @@ package com.MovieBooking.MovieBooking.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "User_details")
 public class UserDetailsEntity {
@@ -23,8 +25,9 @@ public class UserDetailsEntity {
     @Column(name = "phone_number",unique = true, nullable = false)
     private String phoneNumber;
 
-    @Column(name="customer_id", unique = true, nullable = false)
+    @Column(name="customerId", unique = true, nullable = false)
     private String customerId;
+
 
     public UserDetailsEntity() {
     }
@@ -83,6 +86,7 @@ public class UserDetailsEntity {
     public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }
+
 
     @Override
     public String toString() {

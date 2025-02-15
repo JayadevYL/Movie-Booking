@@ -30,4 +30,17 @@ public class LoginAndRegistrationController {
         responseObject.setMessage(response);
         return ResponseEntity.ok(responseObject);
     }
+    // Update the password using Email
+    @PostMapping("/password")
+    public ResponseEntity<String> updateTheCustomerPassword(@RequestBody UserDetails passwordReceivedFromCustomer){
+         updateCustomer.updatePassword(passwordReceivedFromCustomer);
+        return ResponseEntity.status(HttpStatus.OK).body("Successfully password is updated");
+    }
+
+    //Delete customer using Email
+    @PostMapping("/delete")
+    public ResponseEntity<String> deleteTheCustomer(@RequestBody UserDetails deleteCustomer){
+        updateCustomer.deleteTheCustomer(deleteCustomer);
+        return ResponseEntity.status(HttpStatus.OK).body("Account is successfully deleted");
+    }
 }

@@ -2,6 +2,7 @@ package com.MovieBooking.MovieBooking.dao;
 
 import com.MovieBooking.MovieBooking.entity.UserDetailsEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -21,4 +22,13 @@ public interface LoginAndRegistrationRepositoryDao extends JpaRepository<UserDet
    @Query("SELECT u.customerId FROM UserDetailsEntity u WHERE u.email=:email ")
    String getCustomerId(@Param("email") String email);
 
+//   UserDetailsEntity findByUserName(String username);
+
+   @Modifying
+   @Query("UPDATE UserDetailsEntity u SET u.password = :newPassword WHERE u.email = :email")
+   void updateThePassword(String email, String newPassword);
+
+   @Modifying
+   @Query("DELETE UserDetailsEntity u WHERE u.email = :email")
+   void deleteByEmail(String email);
 }

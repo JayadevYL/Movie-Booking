@@ -72,7 +72,6 @@ public class LoginAndRegistrationServiceImpl implements LoginAndRegistrationServ
             throw new WrongPasswordExceptionHandker("The given password is not correct, Please give correct password = "+loginCredential.getPassword());
         }
 
-
         String id=loginAndRegistrationRepositoryDao.getCustomerId(email);
 
         return "Successfully login";
