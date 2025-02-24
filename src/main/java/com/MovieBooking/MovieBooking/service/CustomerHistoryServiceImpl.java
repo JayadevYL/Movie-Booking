@@ -9,13 +9,14 @@ import com.MovieBooking.MovieBooking.model.CustomerDetails;
 import com.MovieBooking.MovieBooking.model.MovieBooking;
 import com.MovieBooking.MovieBooking.model.MovieBookingRequest;
 import com.MovieBooking.MovieBooking.model.MovieDetail;
+import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Objects;
 import java.util.Optional;
-
+@Log4j
 @Service
 public class CustomerHistoryServiceImpl implements CustomerHistoryService{
 
@@ -26,7 +27,7 @@ public class CustomerHistoryServiceImpl implements CustomerHistoryService{
     @Transactional
     public void saveTheMovieBookingDetailsToCustomerHistoryDB(MovieBooking movieBooking) {
 
-        //Convert MovieBooking object to CustomerHistory object to save DB
+        //Convert MovieBooking object to CustomerHistory object to save Data
         CustomerHistoryEntity customerHistoryEntity= CustomerHistoryMapper.INSTANCE.toEntity(movieBooking);
 
         //Using Email getting customerID and set it
@@ -44,6 +45,7 @@ public class CustomerHistoryServiceImpl implements CustomerHistoryService{
         try {
             //Get customer from bookingDetails
            String bookingDetailsCustomerId =bookingDetails.getCustomerId();
+
 
            //Check Given customerId present in DB
             Optional.ofNullable(bookingDetailsCustomerId)
@@ -65,6 +67,7 @@ public class CustomerHistoryServiceImpl implements CustomerHistoryService{
 
             //Check bookingDetailsCustomerId and dbCustomerId
             if(!bookingDetailsCustomerId.equals(dbCustomerId)){
+
                 throw new ValidationExpection("Given CustomerId and Email is not matching please provide correct details");
             }
 
