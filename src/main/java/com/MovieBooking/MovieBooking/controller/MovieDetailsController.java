@@ -1,10 +1,8 @@
 package com.MovieBooking.MovieBooking.controller;
 
-import com.MovieBooking.MovieBooking.model.MovieBooking;
-import com.MovieBooking.MovieBooking.model.MovieDetails;
-import com.MovieBooking.MovieBooking.model.ResponseObject;
-import com.MovieBooking.MovieBooking.model.SelectedMovieDetails;
+import com.MovieBooking.MovieBooking.model.*;
 import com.MovieBooking.MovieBooking.service.CustomerHistoryService;
+import com.MovieBooking.MovieBooking.service.CustomerHistoryServiceImpl;
 import com.MovieBooking.MovieBooking.service.LocationService;
 import com.MovieBooking.MovieBooking.service.MovieDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +21,7 @@ public class MovieDetailsController {
     @Autowired MovieDetailsService movieDetailsService;
     @Autowired CustomerHistoryService customerHistoryService;
     @Autowired private ResponseObject responseObject;
+
 
     //This API for location, where user will see  all the location
     @GetMapping("/location")
@@ -52,6 +51,11 @@ public class MovieDetailsController {
         return ResponseEntity.status(HttpStatus.OK).body(responseObject);
     }
 
+    @PostMapping("/direct/booking")
+    public ResponseEntity<?> bookingdirectly(@RequestBody MovieBookingRequest bookingDetails){
+        customerHistoryService.directlyBookMovieTicketWithAllTheVerification(bookingDetails);
+        return ResponseEntity.status(HttpStatus.OK).body("Thank you");
+    }
 
 
 

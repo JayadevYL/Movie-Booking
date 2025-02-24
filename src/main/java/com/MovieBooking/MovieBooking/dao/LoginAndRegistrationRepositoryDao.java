@@ -31,4 +31,9 @@ public interface LoginAndRegistrationRepositoryDao extends JpaRepository<UserDet
    @Modifying
    @Query("DELETE UserDetailsEntity u WHERE u.email = :email")
    void deleteByEmail(String email);
+
+   boolean existsByCustomerId(String customerID);
+
+   @Query("SELECT u.email FROM UserDetailsEntity u WHERE u.customerId=:customerId")
+   String getEmailUsingCustomerId(String customerId);
 }

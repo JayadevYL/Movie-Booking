@@ -2,6 +2,7 @@ package com.MovieBooking.MovieBooking.exception;
 
 import com.MovieBooking.MovieBooking.exceptions.RegistrationException;
 import com.MovieBooking.MovieBooking.exceptions.EmailNotRegisteredException;
+import com.MovieBooking.MovieBooking.exceptions.ValidationExpection;
 import com.MovieBooking.MovieBooking.exceptions.WrongPasswordExceptionHandker;
 import com.MovieBooking.MovieBooking.model.ResponseObject;
 import org.springframework.http.HttpStatus;
@@ -30,6 +31,13 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(RegistrationException.class)
     public ResponseEntity<ResponseObject> emailAlreadyExists(RegistrationException ex){
+        responseObject.setStatus("400");
+        responseObject.setMessage(ex.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseObject);
+    }
+
+    @ExceptionHandler(ValidationExpection.class)
+    public ResponseEntity<ResponseObject> handleValidationExpection(ValidationExpection ex){
         responseObject.setStatus("400");
         responseObject.setMessage(ex.getMessage());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseObject);

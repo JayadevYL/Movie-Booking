@@ -3,6 +3,7 @@ package com.MovieBooking.MovieBooking.controller;
 import com.MovieBooking.MovieBooking.model.LoginCredential;
 import com.MovieBooking.MovieBooking.model.ResponseObject;
 import com.MovieBooking.MovieBooking.model.UserDetails;
+import com.MovieBooking.MovieBooking.service.CustomerHistoryServiceImpl;
 import com.MovieBooking.MovieBooking.service.LoginAndRegistrationService;
 import com.MovieBooking.MovieBooking.service.UpdateCustomerImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,13 +15,13 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/movie")
 public class LoginAndRegistrationController {
 
-    @Autowired private LoginAndRegistrationService loginAndRegistrationService;
-    @Autowired private ResponseObject responseObject;
-    @Autowired private UpdateCustomerImpl updateCustomer;
+    @Autowired  LoginAndRegistrationService loginAndRegistrationService;
+    @Autowired  ResponseObject responseObject;
+    @Autowired  UpdateCustomerImpl updateCustomer;
 
     @PostMapping("/registration/submit")
     public ResponseEntity<UserDetails> registrationSubmit(@RequestBody UserDetails userDetails){
-//        return new ResponseEntity<>(loginAndRegistrationService.save(userDetails), HttpStatus.CREATED)
+            //return new ResponseEntity<>(loginAndRegistrationService.save(userDetails), HttpStatus.CREATED)
         UserDetails savedDetails=loginAndRegistrationService.save(userDetails);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedDetails);
     }
