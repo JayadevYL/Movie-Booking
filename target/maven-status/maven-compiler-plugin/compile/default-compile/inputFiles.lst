@@ -1,13 +1,39 @@
-/Users/jayadevgouda/Documents/SpringBoot personal project/Project given by manish bhaiya /MovieBooking/src/main/java/com/MovieBooking/MovieBooking/MovieBookingApplication.java
-/Users/jayadevgouda/Documents/SpringBoot personal project/Project given by manish bhaiya /MovieBooking/src/main/java/com/MovieBooking/MovieBooking/controller/LoginAndRegistrationController.java
-/Users/jayadevgouda/Documents/SpringBoot personal project/Project given by manish bhaiya /MovieBooking/src/main/java/com/MovieBooking/MovieBooking/controller/MovieBookingController.java
-/Users/jayadevgouda/Documents/SpringBoot personal project/Project given by manish bhaiya /MovieBooking/src/main/java/com/MovieBooking/MovieBooking/dao/LocationRepositoryDao.java
-/Users/jayadevgouda/Documents/SpringBoot personal project/Project given by manish bhaiya /MovieBooking/src/main/java/com/MovieBooking/MovieBooking/dao/LoginAndRegistrationRepositoryDao.java
-/Users/jayadevgouda/Documents/SpringBoot personal project/Project given by manish bhaiya /MovieBooking/src/main/java/com/MovieBooking/MovieBooking/dao/MovieRepository.java
-/Users/jayadevgouda/Documents/SpringBoot personal project/Project given by manish bhaiya /MovieBooking/src/main/java/com/MovieBooking/MovieBooking/entity/Location.java
-/Users/jayadevgouda/Documents/SpringBoot personal project/Project given by manish bhaiya /MovieBooking/src/main/java/com/MovieBooking/MovieBooking/entity/MovieBooking.java
-/Users/jayadevgouda/Documents/SpringBoot personal project/Project given by manish bhaiya /MovieBooking/src/main/java/com/MovieBooking/MovieBooking/entity/UserDetails.java
-/Users/jayadevgouda/Documents/SpringBoot personal project/Project given by manish bhaiya /MovieBooking/src/main/java/com/MovieBooking/MovieBooking/service/LoginAndRegistrationService.java
-/Users/jayadevgouda/Documents/SpringBoot personal project/Project given by manish bhaiya /MovieBooking/src/main/java/com/MovieBooking/MovieBooking/service/LoginAndRegistrationServiceImpl.java
-/Users/jayadevgouda/Documents/SpringBoot personal project/Project given by manish bhaiya /MovieBooking/src/main/java/com/MovieBooking/MovieBooking/service/MovieService.java
-/Users/jayadevgouda/Documents/SpringBoot personal project/Project given by manish bhaiya /MovieBooking/src/main/java/com/MovieBooking/MovieBooking/service/MovieServiceImpl.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/MovieBookingApplication.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/controller/LoginAndRegistrationController.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/controller/MovieDetailsController.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/dao/CustomerHistoryDao.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/dao/LocationRepositoryDao.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/dao/LoginAndRegistrationRepositoryDao.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/dao/MovieDetailsDao.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/entity/CustomerHistoryEntity.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/entity/LocationEntity.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/entity/MovieDetailsEntity.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/entity/UserDetailsEntity.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/exception/GlobalExceptionHandler.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/exceptions/EmailNotRegisteredException.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/exceptions/RegistrationException.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/exceptions/ValidationExpection.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/exceptions/WrongPasswordExceptionHandker.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/mapper/CustomerHistoryMapper.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/mapper/UserDetailsMapper.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/model/CustomerDetails.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/model/Email.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/model/LoginCredential.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/model/MovieBooking.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/model/MovieBookingRequest.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/model/MovieDetail.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/model/MovieDetails.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/model/ResponseObject.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/model/SelectedMovieDetails.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/model/UserDetails.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/service/CustomerHistoryService.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/service/CustomerHistoryServiceImpl.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/service/LocationService.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/service/LocationServiceImpl.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/service/LoginAndRegistrationService.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/service/LoginAndRegistrationServiceImpl.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/service/MovieDetailsService.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/service/MovieDetailsServiceImpl.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/service/UpdateCustomerDetails.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/service/UpdateCustomerImpl.java
+/Users/jayadev-gowda/Documents/JayadevGowda/Movie-Booking/src/main/java/com/MovieBooking/MovieBooking/validations/RegistrationValidations.java
