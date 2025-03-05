@@ -54,7 +54,7 @@ public class MovieDetailsController {
     @PostMapping("/direct/booking")
     public ResponseEntity<?> bookingdirectly(@RequestBody MovieBookingRequest bookingDetails){
         customerHistoryService.directlyBookMovieTicketWithAllTheVerification(bookingDetails);
-        return ResponseEntity.status(HttpStatus.OK).body("Thank you");
+        return ResponseEntity.status(HttpStatus.OK).body("Movie ticket is booked, Thank you for booking enjoy your time");
     }
 
 

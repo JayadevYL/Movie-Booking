@@ -2,25 +2,26 @@ package com.MovieBooking.MovieBooking.service;
 
 import com.MovieBooking.MovieBooking.dao.CustomerHistoryDao;
 import com.MovieBooking.MovieBooking.dao.LoginAndRegistrationRepositoryDao;
+import com.MovieBooking.MovieBooking.dao.MovieDetailsDao;
 import com.MovieBooking.MovieBooking.entity.CustomerHistoryEntity;
 import com.MovieBooking.MovieBooking.exceptions.ValidationExpection;
 import com.MovieBooking.MovieBooking.mapper.CustomerHistoryMapper;
-import com.MovieBooking.MovieBooking.model.CustomerDetails;
-import com.MovieBooking.MovieBooking.model.MovieBooking;
-import com.MovieBooking.MovieBooking.model.MovieBookingRequest;
-import com.MovieBooking.MovieBooking.model.MovieDetail;
+import com.MovieBooking.MovieBooking.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+
 
 @Service
 public class CustomerHistoryServiceImpl implements CustomerHistoryService{
 
     @Autowired CustomerHistoryDao customerHistoryDao;
     @Autowired LoginAndRegistrationRepositoryDao loginAndRegistrationRepositoryDao;
+    @Autowired MovieDetailsDao movieDetailsDao;
 
     @Override
     @Transactional
@@ -77,6 +78,42 @@ public class CustomerHistoryServiceImpl implements CustomerHistoryService{
                     .findFirst()
                     .orElseThrow(()->new ValidationExpection("Location can not be empty or null"));
 
+            // Use BookingDetailsLocation to Get DB Movies
+             List<String> moviesList=movieDetailsDao.availableMovieListForSelectedLocation(bookingDetailsLocation);
+
+            //Get movie name from bookingDetails
+            String bookingDetailsMovieName= bookingDetails.getMovieDetails().stream()
+                    .map(MovieDetail::getMovieName)
+                    .filter(Objects::nonNull)
+                    .filter(movieName->!movieName.trim().isEmpty())
+                    .findFirst().orElseThrow(()-> new ValidationExpection("MovieName Can not be Empty or Null"));
+            //Get Movie Theatre name
+            String bookingDetailsMovieTheatreName=bookingDetails.getMovieDetails().stream()
+                    .map(MovieDetail::getMovieTheatre)
+                    .filter(Objects::nonNull)
+                    .filter(theatreName->!theatreName.trim().isEmpty())
+                    .findFirst().orElseThrow(()-> new ValidationExpection("Theatre Name should not be Null or Empty"));
+
+            //Get the price of the movie
+            int bookingDetailsPrice=bookingDetails.getMovieDetails().stream()
+                    .map(MovieDetail::getTicketPrice)
+                    .filter(Objects::nonNull)
+                    .findFirst().orElseThrow(()-> new ValidationExpection("Amount Can not be Null or Empty"));
+
+            //Compare bookingDetailsMovieName Present in the moviesList
+            if(moviesList.contains(bookingDetailsMovieName)){
+               //Booking the movie Ticket and save to DB.
+                CustomerHistoryEntity customerHistoryEntity=new CustomerHistoryEntity();
+                customerHistoryEntity.setCustomerId(bookingDetailsCustomerId);
+                customerHistoryEntity.setMovieName(bookingDetailsMovieName);
+                customerHistoryEntity.setTicketPrice(bookingDetailsPrice);
+                customerHistoryEntity.setLocation(bookingDetailsLocation);
+                customerHistoryEntity.setTheatreName(bookingDetailsMovieTheatreName);
+                customerHistoryDao.save(customerHistoryEntity);
+            }
+            else{
+               throw new ValidationExpection("Movie is not available for given location, Please provide valid details");
+            }
 
         } catch (RuntimeException e) {
             throw new RuntimeException(e);
